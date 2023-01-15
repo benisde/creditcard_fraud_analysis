@@ -9,9 +9,11 @@ Data Modelling, Data Engineering, Data Analysis for suspicious fraud transaction
 #
 
 
-## <b>Data Analysis Report</b>
+# <b>Data Analysis Report</b>
 
 #
+
+# Part 1
 
 <b>Question:</b> How can you isolate (or group) the transactions of each cardholder?
 
@@ -21,20 +23,14 @@ Data Modelling, Data Engineering, Data Analysis for suspicious fraud transaction
 
 <b>Question:</b> Count the transactions that are less than $2.00 per cardholder.
 
-<b>Answer:</b> Query of the view "transaction_lessthan$2" will provide the count of  transactions that are less than $2.00 per cardholder.
+<b>Answer:</b> Query of the view "transaction_lessthan$2" will provide the count of transactions that are less than $2.00 per cardholder.
 
 #
 
 <b>Question:</b> Is there any evidence to suggest that a credit card has been hacked? Explain your rationale.
 
-<b>Answer:</b> Yes there are quite a good evidence to say that a credit card for a card holder has been hacked. The card holders who have too many transactions of less than $2.00 on their credit card, are potentially been hacked. For e.g. following credit cards for various card holders might be potentially hacked.
-* Megan Price's Credit Card 376027549341849 have 13 less than $2.00 transaction
-* Danielle Green's Credit Card 584226564303 have 12 less than $2.00 transaction
-* Brandon Pineda's Credit Card 180098539019105 have 11 less than $2.00 transaction
-* Malik Carlson's Credit Card 344119623920892 have 11 less than $2.00 transaction
-* Peter Mckay's Credit Card 4743204091443101526 have 10 less than $2.00 transaction
-* Sean Taylor's Credit Card 3516952396080247 have 10 less than $2.00 transaction
-
+<b>Answer:</b> Yes there are quite a good evidence to say that a credit card for a card holder has been hacked. The card holders who have too many transactions of less than $2.00 on their credit card, are potentially been hacked. For e.g. following top 10 credit cards for various card holders might be potentially hacked.
+![A screenshot of the result.](Images/Top10_CC_hacked.png)
 #
 
 <b>Question:</b> What are the top 100 highest transactions made between 7:00 am and 9:00 am?
@@ -50,23 +46,60 @@ Data Modelling, Data Engineering, Data Analysis for suspicious fraud transaction
 
 <b>Question:</b>Is there a higher number of fraudulent transactions made during this time frame versus the rest of the day?
 
-<b>Answer:</b> Here assuming that transaction less than $2.00 could be fraudulent. Total number of such possible fraudulent transactions between 7 am to 9 am are 30. Total number of such possible fraudulent transactions for the rest of day are 320. This is almost 8.6% of such possible farudulent transacations happened during this 2 hrs of time frame between 7 am and 9 am. Hence, concluding that yes there are a higher number of fraudulent transactions could have been made during this time frame versus the rest of the day.
+<b>Answer:</b> Here assuming that transaction less than $2.00 could be fraudulent. Total number of such possible fraudulent transactions between 7 am to 9 am are 30 across various merchant categories. Total number of such possible fraudulent transactions for the rest of day are 320 across various merchant categories. This is almost 8.6% of such possible farudulent transacations happened during this time frame between 7 am and 9 am for various merchant categories.
+But this doesn't give any pattern of to say that there is a higher number of fraudulent transactions happened during this timeframe of the day for any particular type of merchant category.
 
 #
 
 <b>Question:</b> If you answered yes to the previous question, explain why you think there might be fraudulent transactions during this time frame.
 
-<b>Answer:</b> Fraudulent transactions happen through out the day. But early morning card holders generally do not shop at any merchants of small amount less than $2.00.  Hence, small transacations made during this time frame of 7 am and 9 am might get unnoticed by the card holder.
+<b>Answer:</b> Fraudulent transactions happen through out the day and not only during the said time frame of 7 am to 9 am for various merchant categories. 
 
 #
 
 <b>Question:</b> What are the top 5 merchants prone to being hacked using small transactions?
 
-<b>Answer:</b> Assuming that small transactions are the ones which are less than  $2.00 , following merchants are the top 5 merchants prone to being hacked using small transacations:- Dan-Murray, Henderson and Sons, Hess and Finley Scott, Pugh-Williams, Lewis and Rangel Bond. 
+<b>Answer:</b> Assuming that small transactions are the ones which are less than  $2.00 , following merchants are the top 5 returants, bar and pub prone to being hacked using small transacations:- 
+Johnson-Watts (resturant), Henderson and Sons (resturant),  Hess and Finley Scott (bar), Pugh-Williams (bar), Ruiz-Anderson (pub).
+
+![A screenshot of the result.](Images/Top5_Merchants_Hacked.png)
+#
+
+# Part 2
+
+Line plot representing the time series of transactions over the course of the year for each cardholder 2 and 18
+
+![A screenshot of the result.](Images/Cardholder2.png)
+
+![A screenshot of the result.](Images/Cardholder18.png)
+
+#
+
+Single line plot containing both card holders' trend data
+![A screenshot of the result.](Images/Combined_Cardholder_2_18.png)
+
+#
 
 
+<b>Question: </b> What difference do you observe between the consumption patterns? Does the difference suggest a fraudulent transaction? Explain your rationale.
 
+<b>Answer:</b> For Card holder 18 there are many sudden high amount of transaction and then very small amount of transacation, compared to Card holder 2. Card holder 2 have regular amount of transactions. This explaines Card holder 18 might have fraudulent transacations.
 
+#
+#
+
+Box plot, representing the expenditure data from January 2018 to June 2018 for cardholder ID 25.
+
+![A screenshot of the result.](Images/Box_plot_CC_25.png)
+
+<b> Question: </b> Are there any outliers for cardholder ID 25? How many outliers are there per month?
+
+<b>Answer:</b> Yes there are outliers of transacations every month except in February. In January, March, May there is 1 outlier each. In April and June there are 3 outliers each. There are no outliers in February.
+
+#
+<b>Question:</b> Do you notice any anomalies? Describe your observations and conclusions.
+
+<b>Answer:</b> Yes sudden spikes of transactions in the month of January, March, April, May and June are anomalies. These sudden high amount of transactions  looks to be fraudulent transactions.
 
 
 
